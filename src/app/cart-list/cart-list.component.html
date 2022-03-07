@@ -1,0 +1,81 @@
+
+<mat-card>
+    <mat-toolbar>
+      <span>Your Shopping Cart</span>
+    </mat-toolbar>
+    <mat-card-content>
+        <div *ngIf="cartListItem">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cartListItem">
+                        <td>
+                            <img [src]="'data:image/jpg;base64,' + item.ProductImage" style="height: 50px;width:80px;" alt="image"/>
+                        </td>
+                        <td>
+                            {{item.ProductName}}
+                        </td>
+                        <td>
+                            <mat-icon class="icon bg_icon" (click)="addquantity(item.ProductId)" >add</mat-icon>
+                            <span class="item_qty">{{item.Quantity}}</span>
+                            <mat-icon class="icon bg_icon" (click)="removequantity(item.ProductId)">remove</mat-icon>
+                        </td>
+                        <td>
+                            {{item.UnitPrice}}
+                        </td>
+                        <td>
+                            {{item.TotalPrice}}
+                        </td>
+                        <td>
+                            <a>
+                                <mat-icon class="icon" (click)="removefromcart(item.ProductId)" >delete</mat-icon>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Grand Total</th>
+                        <th colspan="2">{{grandTotal}}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div style="padding: 3%;">
+            <button style="float: right;margin-bottom:5%;margin-left: 1%;" mat-raised-button color="accent" routerLink='/product-shop' >Continue Shopping</button>
+            <button style="float: right;margin-bottom:5%; " (click)="placeOrder()" mat-raised-button color="primary" type="button" >Place Order</button>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="addressflag">
+    <form #addressForm="ngForm" >
+<mat-toolbar>
+    <span>Enter Shipping Address</span>
+</mat-toolbar>
+
+    <mat-card-content>
+        <div>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="ShippingAddress" [(ngModel)]="shippingAddress.Address1" name="Address1" required>
+            </mat-form-field>
+           
+        </div>
+    </mat-card-content>
+    <mat-card-actions style="margin-left: 5%;">
+        <button mat-raised-button color="primary" (click)="confirmOrder()" type="submit" > Confirm Order
+        </button>
+        <a mat-button routerLink="/product-shop" color="warm" >Cancel</a>
+    </mat-card-actions>
+</form>
+</mat-card>

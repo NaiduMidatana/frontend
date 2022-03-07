@@ -1,0 +1,39 @@
+
+.example-full-width{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: auto;
+}
+.btn-block-right{
+    float: right;
+    margin-top: -1%;
+    margin-bottom: 4%;
+    margin-right: 5%;
+    width: 25%;
+}
+.btn-block-left{
+    float: right;
+    margin-top: -1%;
+    margin-bottom: 4%;
+    margin-right: 5%;
+    width: 25%;
+}
+mat-tab-group{
+    min-height: 520px;
+}
+button{
+    float: right;
+    margin: 1%;
+}
+.upload{
+    font-weight:bold;
+    color:#28a745;
+    margin-left: 15px;
+    line-height: 36px;
+}
+.preview-img{
+    margin: 1%;
+    max-height: 23%;
+    width: 20%;
+    border-radius: 50%;
+}

@@ -1,0 +1,42 @@
+.example-card {
+    max-width: 25%;
+    margin:20px;
+    float: left;
+  }
+  img{
+    height: 180px;
+    vertical-align: middle;
+  }
+  .example-header-image {
+    background-image: url('C:\Users\Venkayyam\Desktop\online shopping project\Angular\src\assets\logo.png');
+    background-size: cover;
+  }
+  .searchbar{
+    width: 250px;
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #3f51b5;
+    border-radius: 5px;
+  
+    font-size: 25px;
+    border-style: groove;
+    box-shadow: black;
+    
+  }
+  mat-label{
+    font-size: 25px;
+    color: #3f51b5;
+    margin: 20px;
+  }
+  mat-option{
+    border: 1px solid #3f51b5;
+    border-radius: 5px;
+  }
+  button{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 18px;
+    background-color: #3f51b5;
+  }
+
+

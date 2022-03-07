@@ -1,0 +1,73 @@
+<mat-card>
+    <mat-toolbar>
+        <span>Your All Address List</span>
+    </mat-toolbar>
+    <mat-card-content>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field> 
+            <table mat-table [dataSource]="dataSource" matSort >
+                <!-- Checkbox Column -->
+              <ng-container matColumnDef="select">
+                  <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                                  [checked]="selection.hasValue() && isAllSelected()"
+                                  [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                  [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                  </th>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                                  (change)="$event ? selection.toggle(row) : null"
+                                  [checked]="selection.isSelected(row)"
+                                  [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                  </td>
+                </ng-container>
+                  <!-- Position Column -->
+                <ng-container matColumnDef="Name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>  Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Address1">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Address1 </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Address1}} </td>
+                </ng-container>
+          
+                <!-- Name Column -->
+                <ng-container matColumnDef="Address2">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Address2 </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Address2}} </td>
+                </ng-container>
+            
+                <!-- Weight Column -->
+                <ng-container matColumnDef="LandMark">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> LandMark </th>
+                  <td mat-cell *matCellDef="let element"> {{element.LandMark}} </td>
+                </ng-container>
+                <!-- Pincode -->
+                <ng-container matColumnDef="Pincode">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Pincode </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Pincode}} </td>
+                  </ng-container>
+                  <!-- Contact -->
+                <ng-container matColumnDef="ContactNo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ContactNo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ContactNo}} </td>
+                  </ng-container>
+                <!-- Action Column -->
+                <ng-container matColumnDef="Action">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                  <td mat-cell *matCellDef="let element"> <a mat-button [routerLink]="['/customer-address', element.BillingAddressId]" mat-raised-button color="accent" > Edit </a> </td>
+                </ng-container>
+      
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/customer-address']">Add</button>
+</mat-card>

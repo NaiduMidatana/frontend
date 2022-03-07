@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 48%;
+  margin-left:50%;
+}
+.mat-column-select {
+  overflow: initial;
+} 
+.btnQuickView{
+  width:100%;
+}
+.example-header-image {
+  /*background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');*/
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+}

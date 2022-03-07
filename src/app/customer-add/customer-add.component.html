@@ -1,0 +1,40 @@
+
+    
+ 
+<mat-card>
+    <form #customerForm="ngForm" [formGroup] = "addCustomerForm" (ngSubmit)="save(customerForm.value)">
+        <mat-toolbar>
+            <span>Registration</span>
+        </mat-toolbar>
+        <mat-card-content>
+            <div>
+                <input type="hidden" name="CustomerId" [(ngModel)]="customer.CustomerId">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Customer Name" [(ngModel)]="customer.custName" formControlName="CustomerName" required name="CustomerName" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Mobile Number" [(ngModel)]="customer.custPhNo" formControlName="MobileNo" required name="MobileNo">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email Address" [(ngModel)]="customer.custEmail" formControlName="EmailId" required name="EmailId">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="customer Address" [(ngModel)]="customer.custAddress" formControlName="custAddress" required name="custAddress">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" type="password" [(ngModel)]="customer.password" formControlName="Password" required name="Password">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Confirm Password" type="password" [(ngModel)]="customer.ConfirmPassword" formControlName="ConfirmPassword" required name="ConfirmPassword">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions style="margin-left: 5%;">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!customerForm.form.valid">Save
+            </button>
+            <button mat-raised-button color="secondary" (click)="remove()" *ngIf="customer.CustomerId" type="button">Delete
+            </button>
+            <a mat-button routerLink="/login" color="warm" >Login</a>
+        </mat-card-actions>
+    </form>
+</mat-card>

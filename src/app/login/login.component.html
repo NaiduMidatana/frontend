@@ -1,0 +1,26 @@
+<div class="loginBox">
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup] = "loginForm" class="example-form">
+        <div>
+            <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" [(ngModel)]="Email" formControlName="Email" name="Email" required>
+            </mat-form-field>
+          </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="Password" type="Password" formControlName="Password"  name="Password" required>
+          </mat-form-field>
+        </div>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+      <button mat-raised-button routerLink='/register' color="primary">Register</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

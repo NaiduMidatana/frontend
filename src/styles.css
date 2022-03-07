@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+@import '~ng-pick-datetime/assets/style/picker.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body{
+    min-height: 600px;
+  
+   
+  
+}
+
+.mat-bottom-sheet-container-large, .mat-bottom-sheet-container-medium, .mat-bottom-sheet-container-xlarge {
+    /* unset maximum width */
+    max-width: unset !important;
+  }
+  
+  .mat-bottom-sheet-container-large, .mat-bottom-sheet-container-medium, .mat-bottom-sheet-container-xlarge {
+    /* remove border radius */
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }

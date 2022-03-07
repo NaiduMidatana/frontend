@@ -1,0 +1,64 @@
+<mat-tab-group *ngIf = "imageData">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">shop</mat-icon>
+        Product
+      </ng-template>
+      <mat-card class="example-card left-detail">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{imageData.product.prodName}}</mat-card-title>
+          <mat-card-subtitle>{{imageData.product.category.catName}} </mat-card-subtitle>
+          
+        </mat-card-header>
+        <img style="height: 350px;" mat-card-image [src]="'data:image/jpg;base64,' + imageData.picByte" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>you are selecting best product</p>
+      </mat-card-content>
+      </mat-card>
+      <mat-card class="example-card right-detail">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{imageData.product.prodName}}</mat-card-title>
+          <mat-card-subtitle>{{imageData.product.category.catName}} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{imageData.product.description}}
+           Mouritech always provides products at best prices.
+          </p>
+        
+          <p>
+            <strong> Price : </strong>  {{imageData.product.price}} <strong>INR</strong>
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button routerLink='/product-shop' color="primary">Back To Shop</button>
+         
+          <button mat-raised-button color="warn" [disabled]="!isAvailabele" (click)="addTocart(imageData.product.prodId)"
+           ><mat-icon class="icon">add_shopping_cart</mat-icon>Add To Cart</button>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Quantity" [(ngModel)]="productQuantity" (ngModelChange)="validatequantity()" >
+          </mat-form-field>
+          <label name="lblMessage" *ngIf="lblMessage" style="color: red;" >You have entered more than available quantity.</label>
+        </mat-card-actions>
+      </mat-card>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">local_library</mat-icon>
+        Specification
+      </ng-template>
+      <p> best spcifications</p>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">comment</mat-icon>
+        Review
+      </ng-template>
+  
+    <p> Rating : 5 points </p>
+    </mat-tab>
+  </mat-tab-group>

@@ -1,0 +1,29 @@
+.example-tab-icon {
+    margin-right: 8px;
+    padding: 1%;
+    margin: 1%;
+   
+  }
+  mat-tab-group{
+      padding: 2%;
+  }
+
+  .left-detail{
+      width: 30%;
+      float: left;
+  }
+  .right-detail{
+    width: 62%;
+    margin-left: 1%;
+    float: right;
+}
+.thunbnails{
+    height:75px;
+    width:25%;
+    margin: 1%;
+    padding: 3%;
+    float: left;
+}
+.example-header-image{
+    content: url("C:\Users\Venkayyam\Desktop\online shopping project\Angular\src\assets\logo.png");
+}

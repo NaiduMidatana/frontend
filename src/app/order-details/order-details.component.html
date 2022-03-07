@@ -1,0 +1,57 @@
+<mat-card>
+    <!-- <mat-toolbar><span>Order No #{{orderMaster.order.orderId}}({{orderMaster.order.orderedOn}}) </span></mat-toolbar>  -->
+    <mat-card-content>
+        <!-- <div>
+            <h3>Shipping Address:</h3>
+            <p>
+                {{orderMaster.order.shippingAddress}}
+            </p>
+        </div> -->
+        <table class="table">
+            <thead>
+                <tr>
+                   
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of orderProduct">
+                  
+                    <td>
+                        {{item.prodId}}
+                    </td>
+                    <td>
+                        {{item.prodName}}
+                    </td>
+                    <td>
+                     
+                        {{item.quantity}}
+                      
+                    </td>
+                    <td>
+                        {{item.price}}
+                    </td>
+                    <td>
+                        {{item.totalPrice}}
+                    </td>
+                    <td>
+                        <a>
+                            <mat-icon class="icon" (click)="removefromcart(item.prodId)" >delete</mat-icon>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4">Grand Total</th>
+                    <th colspan="2">{{grandTotal}}</th>
+                </tr>
+            </tfoot>
+        </table>
+    </mat-card-content>
+</mat-card>

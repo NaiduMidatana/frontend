@@ -1,0 +1,37 @@
+<div class="row">
+<mat-label><b>Search products by category</b></mat-label> 
+  <mat-form-field class="da-fieldGroup da-topNegExtraVal lmr-mt-rate" appearance="fill">
+
+<mat-select panelClass="lmr-brandyCode" (selectionChange)="filterProduct($event)" placeholder="Select Category" [value]="selectedCategory"
+  name="status" class="da-location">
+  <mat-option *ngFor="let option of category" [value]="option.catId">
+    {{option.catName}}
+  </mat-option>
+</mat-select>
+  </mat-form-field>
+</div>
+  
+
+
+<div class="row">
+<mat-card class="example-card" *ngFor="let img of imgData">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{img.product.prodName}}</mat-card-title>
+      <mat-card-subtitle>{{img.product.category.catName}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="'data:image/jpg;base64,' + img.picByte" alt="image not found">
+    <mat-card-content>
+      <p>
+       {{img.product.description}}
+
+      </p>
+      <h2>INR {{img.product.price}}</h2>
+     
+    </mat-card-content>
+   
+    <mat-card-actions>
+      <button mat-raised-button style="width:100%;" [routerLink]="['/product-detail', img.product.prodId]" color="warn" ><mat-icon class="icon">local_library &nbsp;&nbsp;</mat-icon>DETAIL VIEW</button>
+    </mat-card-actions>
+</mat-card>
+</div>

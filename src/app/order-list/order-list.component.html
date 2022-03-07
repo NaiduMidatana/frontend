@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-toolbar>
+        <span>Your Order List</span>
+    </mat-toolbar>
+    <mat-card-content>
+        <div>
+                <mat-form-field class="example-full-width">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                    </mat-form-field> 
+                  <table mat-table [dataSource]="dataSource" matSort >
+                      <!-- Position Column -->
+                    <ng-container matColumnDef="OrderId">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order </th>
+                      <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="CustomerName">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer </th>
+                      <td mat-cell *matCellDef="let element"> {{element.customer.custName}} </td>
+                    </ng-container>
+              
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="ShippingAddress">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+                      <td mat-cell *matCellDef="let element"> {{element.shippingAddress}} </td>
+                    </ng-container>
+                
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="Amount">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+                      <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                    </ng-container>
+                
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="OrderDate">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </th>
+                      <td mat-cell *matCellDef="let element"> {{element.orderedOn}} </td>
+                    </ng-container>
+                
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="Action">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                      <td mat-cell *matCellDef="let element"> 
+                          <!-- <a mat-button [routerLink]="['/product-shop', element.OrderId]" mat-raised-button color="accent" ><mat-icon class="icon">open_in_new</mat-icon> Order Details </a> -->
+                        <button mat-raised-button (click)="openBottomSheet(element.orderId)" color="accent" ><mat-icon class="icon">open_in_new</mat-icon> Order Details </button> 
+                    </td>
+                    </ng-container>
+          
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+                  </table>
+                  <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,82 @@
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  a {
+   text-decoration: none;
+   color: white;
+}
+
+a:hover, a:active{
+   color: lightgray;
+}
+
+.navigation-items{
+   list-style-type: none;
+   padding: 0;
+   margin-left: 400px;
+}
+.navigation-items .shopping_cart{
+   margin-right: 20px;
+}
+
+mat-toolbar{
+   border-radius: 3px;
+
+}
+
+
+.mat-sidenav-Container{
+   width: 15%;
+ 
+    
+}
+
+
+@media(max-width: 959px){
+   mat-toolbar{
+       border-radius: 0px;
+   }
+}
+/* ul{
+   float: right;
+} */
+li{
+   display: inline;
+   padding: 1.5%;
+   vertical-align:middle;
+}
+mat-icon{
+   vertical-align: middle;
+   padding: 2.5%;
+}
+.right-nav{
+   float: right;
+   width: 85%;
+}
+.register{
+   margin-left: 0;
+}
+h2{
+   color: yellow;
+    margin-bottom: -25px;
+    margin-left: 28px;
+}
+
+.cart_count {
+   font-size: 14px;
+    background-color: red;
+    padding: 0px 6px;
+    border-radius: 25px;
+    margin-bottom: 11px;
+    position: absolute;
+    top: -12px;
+    right: -11px;
+    line-height: 20px;
+}
+img{
+   width: 50px;
+   height: 50px;
+   margin-right: 10px;
+}

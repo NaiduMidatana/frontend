@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 48%;
+    margin-left:50%;
+  }
+  .mat-column-select {
+    overflow: initial;
+  } 

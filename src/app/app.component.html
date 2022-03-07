@@ -1,0 +1,79 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
+        <mat-icon class="icon" style="color: #fff;" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button> -->
+      <img src="../assets/logo.png"/>
+      <h1>Mouritech Online Shopping System</h1>
+        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+            <!-- <li>
+              <a routerLink='/dashboard'>
+                <mat-icon  class="icon">home</mat-icon>
+                <span class="label">Home</span>
+              </a>
+            </li> -->
+            <li>
+              <a>
+                <!-- <mat-icon class="icon">dashboard</mat-icon> -->
+                <!-- <span class="label">{{userDetails?.custName}}</span> -->
+              </a>
+            </li>
+        </ul>
+    <span class="menu-spacer"></span>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs class="right-nav">
+        <ul fxLayout fxLayoutGap="30px" class="navigation-items">
+          <!-- <li>
+            <a  routerLink='/register'>
+              <mat-icon class="icon">person</mat-icon>
+              <span class="label">Register</span>
+            </a>
+          </li> -->
+          <!-- <h2 class="cartCount">{{cartCount?.length ? cartCount.length : 0}}</h2> -->
+          <li class="shopping_cart">
+            <a style="position: relative;" routerLink='/cart-list'>
+                <mat-icon class="icon">shopping_cart</mat-icon>
+                <span class="cart_count">{{cartCount?.length ? cartCount.length : 0}}</span>
+             </a>
+          </li>
+            <li>
+                <a *ngIf="!userDetails" routerLink='/login'>
+                  <mat-icon class="icon">lock</mat-icon>
+                  <span  class="label">Login</span>
+                </a>
+                <span *ngIf="userDetails" class="label">Hi {{userDetails?.custName}}</span>
+            </li>
+            
+          
+            
+        </ul>
+     </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav  #drawer mode="side" class="mat-sidenav-Container" opened role="navigation">
+    <mat-nav-list>
+    
+      <a mat-list-item *ngIf="!adminFlag && userDetails" routerLink='/edit-profile'><mat-icon class="icon">face</mat-icon>Edit Profile</a>
+      <a *ngIf="adminFlag" mat-list-item routerLink='/product-list'><mat-icon class="icon">home</mat-icon>Add Products</a>
+      <a mat-list-item routerLink='/product-shop'><mat-icon class="icon">shop</mat-icon>Shop Products</a>
+      <a mat-list-item *ngIf="!adminFlag && userDetails" routerLink='/order-list'><mat-icon class="icon">reorder</mat-icon>Order List</a>
+      <a mat-list-item *ngIf="userDetails"  (click)="logout()"><mat-icon class="icon">lock</mat-icon> <span class="label">LogOut</span> </a>
+   
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="min-height: 500px;">
+    <block-ui>
+    <router-outlet>
+      
+    </router-outlet>
+  </block-ui>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<mat-toolbar color="warn">
+  <footer>
+
+    <span style="margin-left: 450px">Mouritech online shopping provides you best prices</span>
+
+</footer>
+
+</mat-toolbar>
